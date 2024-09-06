@@ -1,7 +1,7 @@
 import { type Achievement, type AchievementsResponse } from './apiTypes/achievements'
 import { type MeResponse } from './apiTypes/me'
 import { type Order, type OrderResponse } from './apiTypes/order'
-import { DeleteStoreResponse } from './apiTypes/starred-store'
+import { type DeleteStoreResponse } from './apiTypes/starred-store'
 import { type Drop, type SupplyDropResponse } from './apiTypes/supplyDrop'
 import { getCachedPromise } from './promiseCache'
 
@@ -20,7 +20,7 @@ export const fetchAPI = async <ExpectedType = unknown> (
   }
 
   return await fetch(url.toString(), {
-    'method': method,
+    method,
   })
     .then(async (response) => {
       // The API call was successful!

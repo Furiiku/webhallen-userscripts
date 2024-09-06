@@ -3,7 +3,7 @@ import { setCachedUser } from './lib/userIdCache'
 import { renderComparisonUtility } from './renderers/comparison'
 import { appendScriptSettings, getSetting } from './renderers/settings'
 import { addStatisticsLink } from './renderers/stats'
-import { renderClearFavoriteStoresUtility } from './renderers/stores'
+import { renderClearFavoriteStoresUtility } from './renderers/favstores'
 
 const doRouting = async (): Promise<void> => {
   const { pathname } = document.location

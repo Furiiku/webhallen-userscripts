@@ -26,7 +26,6 @@ export const renderClearFavoriteStoresUtility = (): void => {
     const span2 = document.createElement('span')
     span2.className = 'store-location'
     span2.textContent = 'Löser problem me butiker som inte går att ta bort då de försvunnit'
-    const span4 = document.createElement('span')
     link.appendChild(span1)
     link.appendChild(span2)
     li.appendChild(label)

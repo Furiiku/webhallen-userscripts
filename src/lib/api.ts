@@ -8,7 +8,7 @@ import { getCachedPromise } from './promiseCache'
 export const fetchAPI = async <ExpectedType = unknown> (
   uri: string,
   params?: Record<string, string | number>,
-  method: string = "GET",
+  method: string = 'GET',
 ): Promise<ExpectedType> => {
   const url = new URL(uri)
   if (params) {
@@ -20,7 +20,7 @@ export const fetchAPI = async <ExpectedType = unknown> (
   }
 
   return await fetch(url.toString(), {
-    method: method,
+    'method': method,
   })
     .then(async (response) => {
       // The API call was successful!
@@ -121,9 +121,9 @@ export async function fetchProductData (productId: string | number): Promise<Pro
 }
 
 export async function deleteFavoriteStores (): Promise<null> {
-  for(let i = 0; i <= 40; i++) {
+  for (let i = 0; i <= 40; i++) {
     console.log(`Tar bort butik ${i} från favoriter.`)
-    const data = await fetchAPI<DeleteStoreResponse>(`https://www.webhallen.com/api/starred-store/${i}`, {}, "DELETE")
+    await fetchAPI<DeleteStoreResponse>(`https://www.webhallen.com/api/starred-store/${i}`, {}, 'DELETE')
   }
   return null
 }

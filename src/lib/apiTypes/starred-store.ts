@@ -1,3 +1,3 @@
 export interface DeleteStoreResponse {
-    status: string,
+  status: string
 }

@@ -3,6 +3,7 @@ import { setCachedUser } from './lib/userIdCache'
 import { renderComparisonUtility } from './renderers/comparison'
 import { appendScriptSettings, getSetting } from './renderers/settings'
 import { addStatisticsLink } from './renderers/stats'
+import { renderClearFavoriteStoresUtility } from './renderers/stores'
 
 const doRouting = async (): Promise<void> => {
   const { pathname } = document.location
@@ -25,6 +26,11 @@ const doRouting = async (): Promise<void> => {
   if (getSetting('showComparisons') && (pathname.startsWith('/se/category') || pathname.startsWith('/se/search'))) {
     console.log('On category or search results page, rendering comparison utils')
     renderComparisonUtility()
+  }
+
+  if (pathname.startsWith('/se/info/5-Vara-butiker')) {
+    console.log('On store page, rendering clear favorite store utils')
+    renderClearFavoriteStoresUtility()
   }
 }
 

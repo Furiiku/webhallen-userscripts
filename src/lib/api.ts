@@ -1,12 +1,14 @@
 import { type Achievement, type AchievementsResponse } from './apiTypes/achievements'
 import { type MeResponse } from './apiTypes/me'
 import { type Order, type OrderResponse } from './apiTypes/order'
+import { DeleteStoreResponse } from './apiTypes/starred-store'
 import { type Drop, type SupplyDropResponse } from './apiTypes/supplyDrop'
 import { getCachedPromise } from './promiseCache'
 
 export const fetchAPI = async <ExpectedType = unknown> (
   uri: string,
   params?: Record<string, string | number>,
+  method: string = "GET",
 ): Promise<ExpectedType> => {
   const url = new URL(uri)
   if (params) {
@@ -17,7 +19,9 @@ export const fetchAPI = async <ExpectedType = unknown> (
       })
   }
 
-  return await fetch(url.toString())
+  return await fetch(url.toString(), {
+    method: method,
+  })
     .then(async (response) => {
       // The API call was successful!
       return await response.json()
@@ -114,4 +118,12 @@ export async function fetchProductData (productId: string | number): Promise<Pro
     console.error(error)
     return null
   }
+}
+
+export async function deleteFavoriteStores (): Promise<null> {
+  for(let i = 0; i <= 40; i++) {
+    console.log(`Tar bort butik ${i} från favoriter.`)
+    const data = await fetchAPI<DeleteStoreResponse>(`https://www.webhallen.com/api/starred-store/${i}`, {}, "DELETE")
+  }
+  return null
 }

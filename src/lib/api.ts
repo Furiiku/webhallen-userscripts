@@ -22,6 +22,7 @@ export const fetchAPI = async <ExpectedType = unknown> (
 
   return await fetch(url.toString(), {
     method,
+    signal: AbortSignal.timeout(10000)
   })
     .then(async (response) => {
       // The API call was successful!

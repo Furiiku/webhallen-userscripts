@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.1...v1.3.2) (2024-09-28)
+
+
+### Bug Fixes
+
+* change background on progress bar ([afd1420](https://github.com/Furiiku/webhallen-userscripts/commit/afd1420ab70b480e26d94d628a785b197b664469))
+
 ## [1.3.1](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.0...v1.3.1) (2024-09-28)
 
 

@@ -76,7 +76,7 @@ function updateProgress (current: number, total: number): void {
   if (progressBar && progressText) {
     const percentage: number = (current / total) * 100
     progressBar.style.width = `${percentage}%`
-    progressText.innerText = `${current} of ${total}`
+    progressText.innerText = `${current} av ${total}`
   } else {
     console.error('Could not find progress bar!')
   }

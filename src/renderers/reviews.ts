@@ -185,7 +185,7 @@ async function _clearAndAddReviews (event: MouseEvent): Promise<void> {
 
   const progressText = document.createElement('div')
   progressText.id = 'progress-text'
-  progressText.textContent = '0 of 0'
+  progressText.textContent = '0 av 0'
 
   progressContainer.appendChild(progressBar)
   progressContainer.appendChild(progressText)

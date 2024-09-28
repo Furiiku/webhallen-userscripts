@@ -88,7 +88,14 @@ export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]
       const productReviews = await fetchProductReviews(id)
       console.log(`Got ${productReviews.length} reviews`)
       console.log(`Finding reviews for user ${whId}`)
-      const userProductReview = productReviews.find(review => review.user.id === whId)
+      const userProductReview = productReviews.find(review => {
+        try {
+          return review.user.id === whId;
+        } catch (error) {
+          console.error('Error accessing review:', review, error);
+          return false;
+        }
+      })
       if (userProductReview) {
         console.log('Found a review')
       } else {

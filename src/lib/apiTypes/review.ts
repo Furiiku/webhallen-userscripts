@@ -1,8 +1,8 @@
 /* eslint-disable no-multi-spaces */
 /* eslint-disable @typescript-eslint/key-spacing */
 
-import { Avatar } from "./me"
-import { Product } from "./order"
+import { type Avatar } from './me'
+import { type Product } from './order'
 
 export interface ReviewResponse {
   reviews: Array<Review>

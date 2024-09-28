@@ -1,11 +1,10 @@
 import { type Achievement, type AchievementsResponse } from './apiTypes/achievements'
 import { type MeResponse } from './apiTypes/me'
 import { type Order, type OrderResponse } from './apiTypes/order'
-import { Review, ReviewResponse } from './apiTypes/review'
+import { type Review, type ReviewResponse } from './apiTypes/review'
 import { type DeleteStoreResponse } from './apiTypes/starred-store'
 import { type Drop, type SupplyDropResponse } from './apiTypes/supplyDrop'
 import { getCachedPromise } from './promiseCache'
-import { getCachedUser } from './userIdCache'
 
 export const fetchAPI = async <ExpectedType = unknown> (
   uri: string,
@@ -75,7 +74,7 @@ export interface OrderReview {
   review: Review | undefined
 }
 export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]> => {
-  const userReviews: PromiseLike<OrderReview[]> | { order: number; product: number; review: Review | undefined }[] = []
+  const userReviews: PromiseLike<OrderReview[]> | OrderReview[] = []
   const orders = await fetchOrders(whId)
 
   orders.forEach(order => {
@@ -86,7 +85,7 @@ export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]
       userReviews.push({
         order: order.id,
         product: id,
-        review: userProductReview
+        review: userProductReview,
       })
     })
   })

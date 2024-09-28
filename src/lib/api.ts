@@ -69,6 +69,19 @@ export const fetchOrders = async (whId: number): Promise<Order[]> => {
   })
 }
 
+function updateProgress(current: number, total: number) {
+  const progressBar = document.getElementById('progress-bar') as HTMLElement;
+  const progressText = document.getElementById('progress-text') as HTMLElement;
+  
+  if (progressBar && progressText) {
+    const percentage: number = (current / total) * 100;
+    progressBar.style.width = `${percentage}%`;
+    progressText.innerText = `${current} of ${total}`;
+  } else {
+    console.error("Could not find progress bar!")
+  }
+}
+
 export interface OrderReview {
   product: number
   review: Review | undefined
@@ -77,18 +90,20 @@ export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]
   const handledProducts: number[] = []
   const userReviews = []
   const orders = await fetchOrders(whId)
+  let current = 0
+  const total = orders.flatMap(order => order.rows).length;
 
   for (const order of orders) {
     for (const item of order.rows) {
+      updateProgress(current++, total)
       if (handledProducts.includes(item.product.id)) continue
       handledProducts.push(item.product.id)
 
       const id = item.product.id
-      console.log(`Getting reviews for product ${item.product.id}`)
       const productReviews = await fetchProductReviews(id)
-      console.log(`Got ${productReviews.length} reviews`)
-      console.log(`Finding reviews for user ${whId}`)
       const userProductReview = productReviews.find(review => {
+        if (review.isAnonymous) return false
+
         try {
           return review.user.id === whId
         } catch (error) {

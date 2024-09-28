@@ -1,6 +1,37 @@
 import { fetchUserReviews, type OrderReview } from '../lib/api'
 import { getCachedUser } from '../lib/userIdCache'
 
+function injectCSS (): void {
+  const style = document.createElement('style')
+  style.textContent = `
+            #progress-container {
+                width: 300px;
+                height: 30px;
+                border: 2px solid black;
+                position: relative;
+                margin: 20px 0;
+            }
+            #progress-bar {
+                height: 100%;
+                width: 0;
+                background-color: green;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #progress-text {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                line-height: 30px; /* Aligns text vertically */
+                color: white;
+            }
+        `
+
+  // Append the style element to the head
+  document.head.appendChild(style)
+}
+
 function addDataToDiv (headerText: string, domObject: Element): HTMLDivElement {
   const div = document.createElement('div')
   div.className = 'order my-4'
@@ -116,6 +147,8 @@ function findInjectPath (paths: string[]): HTMLElement | null {
 async function _clearAndAddReviews (event: MouseEvent): Promise<void> {
   event.preventDefault()
 
+  injectCSS()
+
   const clickedLink = event.target as HTMLElement
 
   const allLinks = document.querySelectorAll('.router-link-exact-active.router-link-active')
@@ -143,6 +176,20 @@ async function _clearAndAddReviews (event: MouseEvent): Promise<void> {
   image.setAttribute('href', 'https://cdn.webhallen.com/img/loading_light.svg')
   svg.appendChild(image)
 
+  const progressContainer = document.createElement('div')
+  progressContainer.id = 'progress-container'
+
+  const progressBar = document.createElement('div')
+  progressBar.id = 'progress-bar'
+
+  const progressText = document.createElement('div')
+  progressText.id = 'progress-text'
+  progressText.textContent = '0 of 0'
+
+  progressContainer.appendChild(progressBar)
+  progressContainer.appendChild(progressText)
+
+  injectPath.appendChild(progressContainer)
   injectPath.appendChild(svg)
 
   const userReviews = await fetchUserReviews(getCachedUser().id)

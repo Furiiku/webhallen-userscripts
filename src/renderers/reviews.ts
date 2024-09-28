@@ -108,8 +108,8 @@ function generateReviewTable (reviewData: OrderReview[]): HTMLTableElement {
 
     const link = document.createElement('a')
     link.href = 'https://www.webhallen.com/' + review.product
-    link.target="_blank"
-    link.rel="noopener noreferrer"
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
     const linkText = document.createTextNode('[' + review.product + ']')
 
     if (!review.review) {

@@ -84,8 +84,16 @@ export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]
       handledProducts.push(item.product.id)
 
       const id = item.product.id
+      console.log(`Getting reviews for product ${item.product.id}`)
       const productReviews = await fetchProductReviews(id)
+      console.log(`Got ${productReviews.length} reviews`)
+      console.log(`Finding reviews for user ${whId}`)
       const userProductReview = productReviews.find(review => review.user.id === whId)
+      if (userProductReview) {
+        console.log('Found a review')
+      } else {
+        console.log('Found no reviews')
+      }
       userReviews.push({
         product: id,
         review: userProductReview,

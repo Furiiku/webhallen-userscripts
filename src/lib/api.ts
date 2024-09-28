@@ -69,16 +69,16 @@ export const fetchOrders = async (whId: number): Promise<Order[]> => {
   })
 }
 
-function updateProgress(current: number, total: number) {
-  const progressBar = document.getElementById('progress-bar') as HTMLElement;
-  const progressText = document.getElementById('progress-text') as HTMLElement;
-  
+function updateProgress (current: number, total: number): void {
+  const progressBar = document.getElementById('progress-bar') as HTMLElement
+  const progressText = document.getElementById('progress-text') as HTMLElement
+
   if (progressBar && progressText) {
-    const percentage: number = (current / total) * 100;
-    progressBar.style.width = `${percentage}%`;
-    progressText.innerText = `${current} of ${total}`;
+    const percentage: number = (current / total) * 100
+    progressBar.style.width = `${percentage}%`
+    progressText.innerText = `${current} of ${total}`
   } else {
-    console.error("Could not find progress bar!")
+    console.error('Could not find progress bar!')
   }
 }
 
@@ -91,7 +91,7 @@ export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]
   const userReviews = []
   const orders = await fetchOrders(whId)
   let current = 0
-  const total = orders.flatMap(order => order.rows).length;
+  const total = orders.flatMap(order => order.rows).length
 
   for (const order of orders) {
     for (const item of order.rows) {

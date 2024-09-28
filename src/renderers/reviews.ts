@@ -10,6 +10,7 @@ function injectCSS (): void {
                 border: 2px solid black;
                 position: relative;
                 margin: 20px 0;
+                color: #1a1a1d;
             }
             #progress-bar {
                 height: 100%;

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.2](https://github.com/Furiiku/webhallen-userscripts/compare/v1.2.1...v1.2.2) (2024-09-28)
+
+
+### Bug Fixes
+
+* add error handling for find ([06d558d](https://github.com/Furiiku/webhallen-userscripts/commit/06d558d0d086f774e6ceb42d4d48411851992da4))
+* lint errors ([15f7edb](https://github.com/Furiiku/webhallen-userscripts/commit/15f7edbc0445d5d6d331908d2d7eeeb939ca5a5f))
+
 ## [1.2.1](https://github.com/Furiiku/webhallen-userscripts/compare/v1.2.0...v1.2.1) (2024-09-28)
 
 

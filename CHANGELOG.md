@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.1](https://github.com/Furiiku/webhallen-userscripts/compare/v1.1.0...v1.1.1) (2024-09-28)
+
+
+### Features
+
+* Show user reviews ([68180ca](https://github.com/Furiiku/webhallen-userscripts/commit/68180cae248b8b9a959e4bb6fbfaa3fa46f73f4c))
+
+
+### Bug Fixes
+
+* lint errors ([dc9ca54](https://github.com/Furiiku/webhallen-userscripts/commit/dc9ca540e45e1c37574e8e56ab8113b81c8e3204))
+* lint errors ([b644075](https://github.com/Furiiku/webhallen-userscripts/commit/b644075b2c6b447184f2b168f6fd9bcbf3e57bd8))
+
 ## [1.1.0](https://github.com/Furiiku/webhallen-userscripts/compare/v1.0.1...v1.1.0) (2024-09-06)
 
 

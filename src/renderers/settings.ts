@@ -2,6 +2,8 @@ export const getSetting = (key: string): boolean => {
   const defaults = {
     showComparisons: true,
     showStats: true,
+    showStoreFix: true,
+    showReviews: true,
   } as Record<string, boolean>
   return GM_getValue(key, defaults[key] || false)
 }
@@ -107,6 +109,8 @@ export const appendScriptSettings = (): void => {
     reloadPageDisclaimer,
     renderSettingCheckbox('showComparisons', 'Visa jämförelseverktyget på kategorisidor'),
     renderSettingCheckbox('showStats', 'Visa statistiksidan'),
+    renderSettingCheckbox('showStoreFix', 'Visa rensa favoritbutik fix'),
+    renderSettingCheckbox('showReviews', 'Visa recensioner'),
   ]
 
   const panelDiv = renderPanel('Userscript-inställningar', settingsContents)

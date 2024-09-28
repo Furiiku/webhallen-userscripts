@@ -3,6 +3,7 @@ import { setCachedUser } from './lib/userIdCache'
 import { renderComparisonUtility } from './renderers/comparison'
 import { appendScriptSettings, getSetting } from './renderers/settings'
 import { addStatisticsLink } from './renderers/stats'
+import { addReviewsLink } from './renderers/reviews'
 import { renderClearFavoriteStoresUtility } from './renderers/favstores'
 
 const doRouting = async (): Promise<void> => {
@@ -15,6 +16,7 @@ const doRouting = async (): Promise<void> => {
         setCachedUser(user)
 
         addStatisticsLink()
+        addReviewsLink()
       })
   }
 

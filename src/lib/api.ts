@@ -1,9 +1,11 @@
 import { type Achievement, type AchievementsResponse } from './apiTypes/achievements'
 import { type MeResponse } from './apiTypes/me'
 import { type Order, type OrderResponse } from './apiTypes/order'
+import { Review, ReviewResponse } from './apiTypes/review'
 import { type DeleteStoreResponse } from './apiTypes/starred-store'
 import { type Drop, type SupplyDropResponse } from './apiTypes/supplyDrop'
 import { getCachedPromise } from './promiseCache'
+import { getCachedUser } from './userIdCache'
 
 export const fetchAPI = async <ExpectedType = unknown> (
   uri: string,
@@ -67,6 +69,40 @@ export const fetchOrders = async (whId: number): Promise<Order[]> => {
   })
 }
 
+export interface OrderReview {
+  order: number
+  product: number
+  review: Review | undefined
+}
+export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]> => {
+  const userReviews: PromiseLike<OrderReview[]> | { order: number; product: number; review: Review | undefined }[] = []
+  const orders = await fetchOrders(whId)
+
+  orders.forEach(order => {
+    order.rows.forEach(async item => {
+      const id = item.product.id
+      const productReviews = await fetchProductReviews(id)
+      const userProductReview = productReviews.find(review => review.user.id === whId)
+      userReviews.push({
+        order: order.id,
+        product: id,
+        review: userProductReview
+      })
+    })
+  })
+
+  return userReviews
+}
+
+export const fetchUserReviews = async (whId: number): Promise<OrderReview[]> => {
+  return await getCachedPromise({
+    key: `${whId}-reviews`,
+    fn: async () => {
+      return await fetchUserReviewsFresh(whId)
+    },
+  })
+}
+
 export const fetchAchievements = async (whId: number): Promise<Achievement[]> => {
   const data = await fetchAPI<AchievementsResponse>(`https://www.webhallen.com/api/user/${encodeURIComponent(whId)}/achievements`)
   return data.achievements
@@ -118,6 +154,21 @@ export async function fetchProductData (productId: string | number): Promise<Pro
     console.error(error)
     return null
   }
+}
+
+export async function fetchProductReviews (productId: string | number): Promise<Review[]> {
+  let page = 1
+  const reviews = []
+
+  while (true) {
+    const params = { page }
+    const data = await fetchAPI<ReviewResponse>(`https://www.webhallen.com/api/reviews?products[0]=${productId}&sortby=latest`, params)
+    if (data.reviews.length === 0) break
+    reviews.push(...data.reviews)
+    page++
+  }
+
+  return reviews
 }
 
 export async function deleteFavoriteStores (): Promise<null> {

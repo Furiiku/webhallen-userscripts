@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Furiiku/webhallen-userscripts/compare/v1.2.0...v1.2.1) (2024-09-28)
+
+
+### Bug Fixes
+
+* add debug for reviews ([37d978c](https://github.com/Furiiku/webhallen-userscripts/commit/37d978c0af76cab69e0eae8d5506101fd9c7c99b))
+
 ## [1.2.0](https://github.com/Furiiku/webhallen-userscripts/compare/v1.1.1...v1.2.0) (2024-09-28)
 
 

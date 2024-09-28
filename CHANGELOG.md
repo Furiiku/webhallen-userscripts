@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/Furiiku/webhallen-userscripts/compare/v1.1.1...v1.2.0) (2024-09-28)
+
+
+### Features
+
+* Add 10 second timeout on all api requests ([05783e5](https://github.com/Furiiku/webhallen-userscripts/commit/05783e53cfada93305c62e2c2e9b85e23f9ba81f))
+
+
+### Bug Fixes
+
+* lint error ([2dfd83a](https://github.com/Furiiku/webhallen-userscripts/commit/2dfd83aa5ff1ed538dac6bbc116f409b2197721d))
+* lint error ([7b0c30a](https://github.com/Furiiku/webhallen-userscripts/commit/7b0c30a93462fcc3fab2460095e7afbd91320d83))
+* lint errors ([43dea65](https://github.com/Furiiku/webhallen-userscripts/commit/43dea65ed2b958084b188e5e402bd96253e84d1d))
+* only process product once and output clickable link ([0462d3b](https://github.com/Furiiku/webhallen-userscripts/commit/0462d3b4d95e1612b717bc7e599e9b03136cb16a))
+
 ## [1.1.1](https://github.com/Furiiku/webhallen-userscripts/compare/v1.1.0...v1.1.1) (2024-09-28)
 
 

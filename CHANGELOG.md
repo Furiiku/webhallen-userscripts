@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.1](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.0...v1.3.1) (2024-09-28)
+
+
+### Bug Fixes
+
+* change background color of progress bar ([29826c1](https://github.com/Furiiku/webhallen-userscripts/commit/29826c151851c6297d8da4c9e7aa262ec4239344))
+* change language ([c366604](https://github.com/Furiiku/webhallen-userscripts/commit/c366604c9f49502237c14569962c2430add671e6))
+* incorrect placement of data on review page ([7d16bb5](https://github.com/Furiiku/webhallen-userscripts/commit/7d16bb529edfac0c3b1867188d67f429618d47ee))
+* lint errors ([755eeda](https://github.com/Furiiku/webhallen-userscripts/commit/755eedaa669bcca97ddda1ca739a954a433f389c))
+
 ## [1.3.0](https://github.com/Furiiku/webhallen-userscripts/compare/v1.2.2...v1.3.0) (2024-09-28)
 
 

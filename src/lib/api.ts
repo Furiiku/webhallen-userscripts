@@ -73,7 +73,7 @@ export interface OrderReview {
   review: Review | undefined
 }
 export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]> => {
-  const handledProducts = []
+  const handledProducts: number[] = []
   const userReviews = []
   const orders = await fetchOrders(whId)
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/Furiiku/webhallen-userscripts/compare/v1.2.2...v1.3.0) (2024-09-28)
+
+
+### Features
+
+* add progress bar to reviews ([19f468e](https://github.com/Furiiku/webhallen-userscripts/commit/19f468ed7da2a37972bc439407b423b71a10bbf3))
+
+
+### Bug Fixes
+
+* lint errors ([4706f08](https://github.com/Furiiku/webhallen-userscripts/commit/4706f088544ff8a57da1f59fc6e92fb3ecf495de))
+
 ## [1.2.2](https://github.com/Furiiku/webhallen-userscripts/compare/v1.2.1...v1.2.2) (2024-09-28)
 
 

@@ -5,8 +5,8 @@ import { type Avatar } from './me'
 import { type Product } from './order'
 
 export interface ReviewResponse {
-  reviews: Array<Review>
-  hypes: Array<unknown>
+  reviews: Review[]
+  hypes: unknown[]
   totalReviewCount: number
   totalHypeCount: number
   reviewsPerPage: number
@@ -33,7 +33,7 @@ export interface ReviewUser {
   id: number
   username: string
   isPublicProfule: boolean
-  knighthood: Array<number>
+  knighthood: number[]
   rankLevel: number
   avatar: Avatar
 }

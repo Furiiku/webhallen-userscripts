@@ -1,4 +1,4 @@
-import { fetchUserReviews, OrderReview } from '../lib/api'
+import { fetchUserReviews, type OrderReview } from '../lib/api'
 import { getCachedUser } from '../lib/userIdCache'
 
 function addDataToDiv (headerText: string, domObject: Element): HTMLDivElement {
@@ -93,7 +93,7 @@ function generateReviewTable (reviewData: OrderReview[]): HTMLTableElement {
   return table
 }
 
-function findInjectPath(paths: string[]): HTMLElement | null {
+function findInjectPath (paths: string[]): HTMLElement | null {
   let dom = null
   paths.forEach(path => {
     const d = document.querySelector(path)
@@ -105,7 +105,7 @@ function findInjectPath(paths: string[]): HTMLElement | null {
   return dom
 }
 
-async function _clearAndAddReviews(event: MouseEvent): Promise<void> {
+async function _clearAndAddReviews (event: MouseEvent): Promise<void> {
   event.preventDefault()
 
   const clickedLink = event.target as HTMLElement
@@ -146,7 +146,7 @@ async function _clearAndAddReviews(event: MouseEvent): Promise<void> {
   }
 }
 
-export function addReviewsLink(): void {
+export function addReviewsLink (): void {
   const reviewsLink = document.querySelector('.member-nav li img[alt="Recensioner"]')
   if (reviewsLink) return
 

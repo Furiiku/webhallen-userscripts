@@ -74,11 +74,11 @@ export interface OrderReview {
   review: Review | undefined
 }
 export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]> => {
-  const userReviews: PromiseLike<OrderReview[]> | OrderReview[] = []
+  const userReviews = []
   const orders = await fetchOrders(whId)
 
-  orders.forEach(order => {
-    order.rows.forEach(async item => {
+  for (const order of orders) {
+    for (const item of order.rows) {
       const id = item.product.id
       const productReviews = await fetchProductReviews(id)
       const userProductReview = productReviews.find(review => review.user.id === whId)
@@ -87,8 +87,8 @@ export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]
         product: id,
         review: userProductReview,
       })
-    })
-  })
+    }
+  }
 
   return userReviews
 }

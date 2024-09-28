@@ -69,21 +69,23 @@ export const fetchOrders = async (whId: number): Promise<Order[]> => {
 }
 
 export interface OrderReview {
-  order: number
   product: number
   review: Review | undefined
 }
 export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]> => {
+  const handledProducts = []
   const userReviews = []
   const orders = await fetchOrders(whId)
 
   for (const order of orders) {
     for (const item of order.rows) {
+      if (handledProducts.includes(item.product.id)) continue
+      handledProducts.push(item.product.id)
+
       const id = item.product.id
       const productReviews = await fetchProductReviews(id)
       const userProductReview = productReviews.find(review => review.user.id === whId)
       userReviews.push({
-        order: order.id,
         product: id,
         review: userProductReview,
       })

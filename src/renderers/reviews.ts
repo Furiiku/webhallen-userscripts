@@ -55,7 +55,7 @@ function generateReviewTable (reviewData: OrderReview[]): HTMLTableElement {
 
   const thead = document.createElement('thead')
   const headerRow = document.createElement('tr')
-  const headers = ['Order id', 'Artikel id', 'Omdöme']
+  const headers = ['Artikel id', 'Artikel id', 'Omdöme']
 
   headers.forEach(function (header) {
     const th = document.createElement('th')
@@ -74,13 +74,21 @@ function generateReviewTable (reviewData: OrderReview[]): HTMLTableElement {
     const cell2 = document.createElement('td')
     const cell3 = document.createElement('td')
 
-    cell1.textContent = review.order.toString()
-    cell2.textContent = review.product.toString()
+    const link = document.createElement('a')
+    link.href = 'https://www.webhallen.com/' + review.product
+
+    const linkText = document.createTextNode('[' + review.product + '] ')
+    
     if (!review.review) {
-      cell3.textContent = 'Denna produkt saknar recenssion'
+      cell2.textContent = 'Denna produkt saknar recenssion'
     } else {
-      cell3.textContent = review.review.text.toString()
+      cell2.textContent = review.review.text.toString()
+      cell3.textContent = review.review.rating.toString()
+      linkText.textContent = linkText.textContent + review.review.product.name.toString()
     }
+
+    link.appendChild(linkText)
+    cell3.appendChild(link)
 
     row.appendChild(cell1)
     row.appendChild(cell2)

@@ -78,7 +78,7 @@ function generateReviewTable (reviewData: OrderReview[]): HTMLTableElement {
     link.href = 'https://www.webhallen.com/' + review.product
 
     const linkText = document.createTextNode('[' + review.product + '] ')
-    
+
     if (!review.review) {
       cell2.textContent = 'Denna produkt saknar recenssion'
     } else {

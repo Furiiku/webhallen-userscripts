@@ -74,7 +74,7 @@ function updateProgress (current: number, total: number): void {
   const progressText = document.getElementById('review-progress-text') as HTMLElement
 
   if (progressBar && progressText) {
-    const percentage: number = (current / total) * 100
+    const percentage = (current / total) * 100
     progressBar.style.width = `${percentage}%`
     progressText.innerText = `${current} av ${total}`
   } else {
@@ -87,7 +87,7 @@ export interface OrderReview {
   review: Review | undefined
 }
 export const fetchUserReviewsFresh = async (whId: number): Promise<OrderReview[]> => {
-  const handledProducts: number[] = []
+  const handledProducts = [] as number[]
   const userReviews = []
   const orders = await fetchOrders(whId)
   let current = 0

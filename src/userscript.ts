@@ -21,12 +21,12 @@ const doRouting = async (): Promise<void> => {
 
   if (getSetting('showReviews') && pathname.startsWith('/se/member')) {
     await fetchMe()
-    .then((user) => {
-      if (!user) return
-      setCachedUser(user)
+      .then((user) => {
+        if (!user) return
+        setCachedUser(user)
 
-      addReviewsLink()
-    })
+        addReviewsLink()
+      })
   }
 
   if (pathname.match(/\/se\/member\/\d+\/profile/)) {

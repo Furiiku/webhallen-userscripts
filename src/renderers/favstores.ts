@@ -16,7 +16,7 @@ function observeDOM (): void {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach((node) => {
           const addedNode = node as unknown as HTMLElement
-          if (addedNode.className && addedNode.className === 'list-group mt-5') {
+          if (addedNode.className && addedNode.className === 'stores-map') {
             const storelist = addedNode.querySelector('.list-group') as HTMLDivElement
             if (storelist) {
               console.log('Found store list', storelist)

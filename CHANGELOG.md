@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.5](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.4...v1.3.5) (2024-09-30)
+
+
+### Bug Fixes
+
+* lint errors ([501765e](https://github.com/Furiiku/webhallen-userscripts/commit/501765e84080e35b5ab20f233283808057d4b8ce))
+* reviews and storefix settings toggle ([4323bb9](https://github.com/Furiiku/webhallen-userscripts/commit/4323bb93a98382046c2145f4d63676376bb090ca))
+
 ## [1.3.4](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.3...v1.3.4) (2024-09-30)
 
 

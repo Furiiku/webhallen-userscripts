@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.6](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.5...v1.3.6) (2024-09-30)
+
+
+### Bug Fixes
+
+* design on progress bar ([4610459](https://github.com/Furiiku/webhallen-userscripts/commit/46104591df18fd86216687c6f746383931b83086))
+
 ## [1.3.5](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.4...v1.3.5) (2024-09-30)
 
 

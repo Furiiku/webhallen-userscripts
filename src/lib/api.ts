@@ -70,8 +70,8 @@ export const fetchOrders = async (whId: number): Promise<Order[]> => {
 }
 
 function updateProgress (current: number, total: number): void {
-  const progressBar = document.getElementById('progress-bar') as HTMLElement
-  const progressText = document.getElementById('progress-text') as HTMLElement
+  const progressBar = document.getElementById('review-progress-bar') as HTMLElement
+  const progressText = document.getElementById('review-progress-text') as HTMLElement
 
   if (progressBar && progressText) {
     const percentage: number = (current / total) * 100

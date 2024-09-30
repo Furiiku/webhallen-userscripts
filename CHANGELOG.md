@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.8](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.7...v1.3.8) (2024-09-30)
+
+
+### Bug Fixes
+
+* lint errors ([76f8a52](https://github.com/Furiiku/webhallen-userscripts/commit/76f8a5235abf6fea97eb52b1cdd80253b9a9b99f))
+* make reviews off by default and add warning label ([9d1ec9b](https://github.com/Furiiku/webhallen-userscripts/commit/9d1ec9b1370f1e75ddd58ec64539a7b81c0a38de))
+
 ## [1.3.7](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.6...v1.3.7) (2024-09-30)
 
 

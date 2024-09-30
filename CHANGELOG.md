@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.3](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.2...v1.3.3) (2024-09-30)
+
+
+### Bug Fixes
+
+* make progress conform to wh design ([4217156](https://github.com/Furiiku/webhallen-userscripts/commit/42171561cf8b5d7ac964939a9fb286b5c863bc8f))
+* use mutationobserver to find fav store list ([547e121](https://github.com/Furiiku/webhallen-userscripts/commit/547e1213d77a088935fbcc132edc6b1d68dacdab))
+
 ## [1.3.2](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.1...v1.3.2) (2024-09-28)
 
 

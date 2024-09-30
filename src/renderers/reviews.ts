@@ -4,7 +4,7 @@ import { getCachedUser } from '../lib/userIdCache'
 function injectCSS (): void {
   const style = document.createElement('style')
   style.textContent = `
-            .progress-container {
+            .review-progress-container {
                 width: 300px;
                 height: 30px;
                 border: 2px solid white;
@@ -14,7 +14,16 @@ function injectCSS (): void {
                 border-radius: 50rem;
             }
 
-            .progress-container .progress-text {
+            .review-progress-bar {
+              background-color: #29bb59;
+              border-radius: 50rem 100rem 1px 50rem;
+              box-shadow: none;
+              height: 100%;
+              position: absolute;
+              transition: width .6s ease;
+            }
+
+            .review-progress-text {
                 position: absolute;
                 width: 100%;
                 text-align: center;
@@ -172,15 +181,15 @@ async function _clearAndAddReviews (event: MouseEvent): Promise<void> {
   svg.appendChild(image)
 
   const progressContainer = document.createElement('div')
-  progressContainer.className = 'progress-container progress-level mb-3'
+  progressContainer.className = 'review-progress-container mb-3'
 
   const progressBar = document.createElement('div')
   progressBar.id = 'review-progress-bar'
-  progressBar.className = 'progress-bar'
+  progressBar.className = 'review-progress-bar'
 
   const progressText = document.createElement('div')
   progressText.id = 'review-progress-text'
-  progressText.className = 'progress-text'
+  progressText.className = 'review-progress-text'
   progressText.textContent = '0 av 0'
 
   progressContainer.appendChild(progressBar)

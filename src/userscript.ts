@@ -16,8 +16,17 @@ const doRouting = async (): Promise<void> => {
         setCachedUser(user)
 
         addStatisticsLink()
-        addReviewsLink()
       })
+  }
+
+  if (getSetting('showReviews') && pathname.startsWith('/se/member')) {
+    await fetchMe()
+    .then((user) => {
+      if (!user) return
+      setCachedUser(user)
+
+      addReviewsLink()
+    })
   }
 
   if (pathname.match(/\/se\/member\/\d+\/profile/)) {
@@ -30,7 +39,7 @@ const doRouting = async (): Promise<void> => {
     renderComparisonUtility()
   }
 
-  if (pathname.startsWith('/se/info/5-Vara-butiker')) {
+  if (getSetting('showStoreFix') && pathname.startsWith('/se/info/5-Vara-butiker')) {
     console.log('On store page, rendering clear favorite store utils')
     renderClearFavoriteStoresUtility()
   }

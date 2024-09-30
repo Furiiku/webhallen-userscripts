@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.7](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.6...v1.3.7) (2024-09-30)
+
+
+### Bug Fixes
+
+* use custom css for progress ([7d53ad0](https://github.com/Furiiku/webhallen-userscripts/commit/7d53ad00472e3d86e25d395006e9c59d31cfda61))
+
 ## [1.3.6](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.5...v1.3.6) (2024-09-30)
 
 

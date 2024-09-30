@@ -3,7 +3,7 @@ export const getSetting = (key: string): boolean => {
     showComparisons: true,
     showStats: true,
     showStoreFix: true,
-    showReviews: true,
+    showReviews: false,
   } as Record<string, boolean>
   return GM_getValue(key, defaults[key] || false)
 }
@@ -12,7 +12,7 @@ const setSetting = (key: string, value: boolean): void => {
   GM_setValue(key, value)
 }
 
-const renderSettingCheckbox = (settingKey: string, labelText: string): Element => {
+const renderSettingCheckbox = (settingKey: string, labelText: string, warningText: string | undefined = undefined): Element => {
   const settingValue = getSetting(settingKey)
 
   const label = document.createElement('label')
@@ -37,6 +37,17 @@ const renderSettingCheckbox = (settingKey: string, labelText: string): Element =
   labelSpan.classList.add('checkbox-label')
   labelSpan.textContent = labelText
   label.appendChild(labelSpan)
+
+  if (warningText) {
+    const warningSpan = document.createElement('span')
+    warningSpan.textContent = warningText
+    warningSpan.style.width = '60%'
+    warningSpan.style.position = 'relative'
+    warningSpan.style.left = '5rem'
+    warningSpan.style.color = '#d50855'
+    warningSpan.style.fontSize = '11px'
+    labelSpan.appendChild(warningSpan)
+  }
 
   const renderState = (checked: boolean): void => {
     if (checked) {
@@ -110,7 +121,7 @@ export const appendScriptSettings = (): void => {
     renderSettingCheckbox('showComparisons', 'Visa jämförelseverktyget på kategorisidor'),
     renderSettingCheckbox('showStats', 'Visa statistiksidan'),
     renderSettingCheckbox('showStoreFix', 'Visa rensa favoritbutik fix'),
-    renderSettingCheckbox('showReviews', 'Visa recensioner'),
+    renderSettingCheckbox('showReviews', 'Visa recensioner', 'Recensioner är en trafikintensiv feature och kan påverka din upplevelse hos webhallen. Genom att aktivera detta godkänner du att du förstår innebörden av detta och att inte missbruka denna feature!'),
   ]
 
   const panelDiv = renderPanel('Userscript-inställningar', settingsContents)

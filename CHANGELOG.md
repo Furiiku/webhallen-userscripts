@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.3...v1.3.4) (2024-09-30)
+
+
+### Bug Fixes
+
+* favstores not finding the correct div ([70330fa](https://github.com/Furiiku/webhallen-userscripts/commit/70330fa83d15307e99a36575858d5f886c250e52))
+
 ## [1.3.3](https://github.com/Furiiku/webhallen-userscripts/compare/v1.3.2...v1.3.3) (2024-09-30)
 
 

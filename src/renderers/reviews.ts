@@ -13,6 +13,14 @@ function injectCSS (): void {
                 background-color: #272a4c;
                 border-radius: 50rem;
             }
+
+            .progress-container .progress-text {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                line-height: 30px;
+                color: white;
+            }
         `
 
   // Append the style element to the head
@@ -164,7 +172,7 @@ async function _clearAndAddReviews (event: MouseEvent): Promise<void> {
   svg.appendChild(image)
 
   const progressContainer = document.createElement('div')
-  progressContainer.className = 'progress-container'
+  progressContainer.className = 'progress-container progress-level mb-3'
 
   const progressBar = document.createElement('div')
   progressBar.id = 'review-progress-bar'
